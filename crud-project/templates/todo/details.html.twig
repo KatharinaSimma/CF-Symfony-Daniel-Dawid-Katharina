@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<main class="container mt-4">
+		<h1 class"mt-2"> Todo Details: </h1>
+
+        <div class="container my-5">
+
+            <h2 class="page-header">{{todo.name}}</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Category:
+                    {{todo.category}}</li>
+                <li class="list-group-item">Priority:
+                    {{todo.priority}}</li>
+                <li class="list-group-item">Due:
+                    <strong>
+                        {{todo.dueDate|date('F j, Y, g:i a')}}
+                    </strong>
+                </li>
+            </ul>
+            <p>
+                {{todo.description}}
+            </p><br>
+
+            <a class="btn btn-info" href="/">Back to Todos</a>
+        </div>
+        
+	</main>
+
+{% endblock %}

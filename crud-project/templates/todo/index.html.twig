@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="container">
+
+        <h2  class="page-header mt-5"> Latest todos </h2>
+
+        <table class="table table-striped">
+            <thead >
+                <tr>
+                    <th>#</th >
+                    <th>Todo</th>
+                    <th>Due Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for todo in todos %} {# making a loop in twig inside the variable todos #}
+                    <tr>
+                        <th scope="row"> {{ todo.id }} </th > {# the id of the todo #}
+                        <td> {{ todo.name }} </td> {# the name of the todo #}
+                        <td> {{ todo.dueDate|date('F j, Y, g:i a') }}</td > {# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
+                        <td> <a href="/details/ {{ todo.id }}" class= "btn btn-success">View</a> {# a tag to go to the path /details/{{todo.id}} so we send the id of the record with the path (like when we are using get method ) #}
+                        <a href="/edit/{{todo.id}}" class= "btn btn-info">Edit</a>
+                        <a href="/delete/{{todo.id}}"  class="btn btn-danger">Delete</a >        
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody >
+
+        </table>
+
+    </main>
+
+{% endblock %}
