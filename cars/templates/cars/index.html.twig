@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarsController!{% endblock %}
+
+
+{% block body %}
+<div class="container">
+<div class="row">
+    {% for car in cars %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ car.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ car.brand }}</h5>
+                <p class="card-text">Model: {{ car.model }}</p>
+                <p class="card-text">Price: {{ car.price }}</p>
+                <a href="/details/{{ car.id }}" class="btn btn-primary">Show me</a>
+                <a href="/edit/{{ car.id }}" class="btn btn-primary">Edit</a>
+                <a href="/delete/{{ car.id }}" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+</div>
+{% endblock %}

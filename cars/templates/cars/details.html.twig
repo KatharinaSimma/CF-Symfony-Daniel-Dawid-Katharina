@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="card" style="width: 18rem;">
+            <img src="{{ cars.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ cars.brand }}</h5>
+                <p class="card-text">Model: {{ cars.model }}</p>
+                <p class="card-text">Price: {{ cars.price }}</p>
+                <a href="/edit/{{ cars.id }}" class="btn btn-primary">Edit</a>
+                <a href="/delete/{{ cars.id }}" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+{% endblock  %}
